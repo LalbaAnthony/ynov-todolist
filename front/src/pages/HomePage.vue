@@ -24,11 +24,9 @@
 import Grid from '@/components/GridComponent.vue'
 import Task from '@/components/task/TaskItem.vue'
 import Loader from '@/components/LoaderComponent.vue'
-import { useAuthStore } from '@/stores/auth'
 import { useTaskStore } from '@/stores/task'
 import { onMounted } from 'vue'
 
-const authStore = useAuthStore()
 const taskStore = useTaskStore()
 
 async function loadTasks() {
@@ -40,7 +38,7 @@ async function loadTasks() {
 
 // Fetch data on mount
 onMounted(() => {
-  if (authStore?.user?.homePageEnableLasts) loadTasks()
+  loadTasks()
 })
 
 
