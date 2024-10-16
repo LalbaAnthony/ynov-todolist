@@ -12,11 +12,11 @@ router.get('/categories', categoryController.getAllCategories);
 router.get('/category/:id', categoryController.getCategoryById);
 
 // Seaons
-router.get('/tasks', checkToken, taskController.getAllSeasons);
-router.get('/task/:id', checkToken, taskController.getSeasonById);
-router.post('/tasks', checkToken, taskController.createSeason);
-router.put('/task/:id', checkToken, taskController.updateSeason);
-router.delete('/task/:id', checkToken, taskController.deleteSeason);
+router.get('/tasks', checkToken, taskController.getAllTasks);
+router.get('/task/:id', checkToken, taskController.getTaskById);
+router.post('/tasks', checkToken, taskController.createTask);
+router.put('/task/:id', checkToken, taskController.updateTask);
+router.delete('/task/:id', checkToken, taskController.deleteTask);
 
 // User
 router.post('/register', userController.register);

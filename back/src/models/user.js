@@ -21,26 +21,6 @@ const User = sequelize.define('User', {
         allowNull: false,
         unique: true,
     },
-    homePageEnableSpents: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
-    },
-    homePageEnableStats: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-    },
-    homePageEnableQuote: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
-    },
-    homePageEnableLasts: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true,
-    },
     connectionToken: {
         type: DataTypes.STRING,
         allowNull: true,

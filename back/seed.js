@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('./src/config/database');
 
 // Importing models
-const Season = require('./src/models/task');
+const Task = require('./src/models/task');
 const Category = require('./src/models/category');
 const User = require('./src/models/user');
 
@@ -21,7 +21,7 @@ const seedData = async () => {
 
         // Drop database tables (disable and re-enable foreign key checks)
         await sequelize.query('PRAGMA foreign_keys = OFF');
-        await Season.drop();
+        await Task.drop();
         await User.drop();
         await Category.drop();
         await sequelize.query('PRAGMA foreign_keys = ON');
@@ -33,14 +33,14 @@ const seedData = async () => {
         const sampleUsers = require('./src/seed_data/users.json');
         for (const user of sampleUsers) user.password = await bcrypt.hash(user.password, 10);
         await User.bulkCreate(sampleUsers);
- 
+
         // Sample data for Category table
         const sampleCategories = require('./src/seed_data/categories.json');
         await Category.bulkCreate(sampleCategories);
 
-        // Sample data for Season table
-        const sampleSeasons = require('./src/seed_data/tasks.json');
-        await Season.bulkCreate(sampleSeasons);
+        // Sample data for Task table
+        const sampleTasks = require('./src/seed_data/tasks.json');
+        await Task.bulkCreate(sampleTasks);
 
         logConsole('Sample data inserted');
     } catch (error) {
@@ -53,7 +53,7 @@ const seedData = async () => {
 const checkData = async () => {
     try {
         // Verify that the data has been inserted with a SELECT query
-        const tasks = await Season.findAll();
+        const tasks = await Task.findAll();
         if (tasks.length === 0) {
             console.error('No tasks found in the database');
         } else {

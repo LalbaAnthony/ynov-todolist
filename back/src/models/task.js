@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Season = sequelize.define('Season', {
+const Task = sequelize.define('Task', {
     taskId: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -32,14 +32,14 @@ const Season = sequelize.define('Season', {
         type: DataTypes.STRING(50),
         allowNull: false,
     },
-    color: {
-        type: DataTypes.STRING(7),
-        allowNull: false,
-        defaultValue: '#000000',
-    },
     description: {
         type: DataTypes.STRING(1000),
         allowNull: true,
+    },
+    done: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     },
     startAt: {
         type: DataTypes.DATE,
@@ -66,4 +66,4 @@ const Season = sequelize.define('Season', {
     tableName: 'task',
 });
 
-module.exports = Season;
+module.exports = Task;
