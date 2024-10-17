@@ -87,7 +87,8 @@ export const useTaskStore = defineStore('task', {
 
     initTask() {
       this.clearTask()
-      this.task.data.date = new Date().toISOString()
+      this.task.data.startAt = new Date().toISOString()
+      this.task.data.endAt = new Date().toISOString()
       this.task.data.userId = authStore.user.userId
     },
 

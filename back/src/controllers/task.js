@@ -83,7 +83,7 @@ exports.createTask = async (req, res) => {
     const { userId, categoryId, name, description, done, startAt, endAt} = req.body;
     try {
         // Check if all fields are provided
-        if (!userId || !name || !startAt) return res.status(400).json(formatRes('error', null, 'Missing fields: userId, name, color, startAt'));
+        if (!userId || !name || !startAt) return res.status(400).json(formatRes('error', null, 'Missing fields: userId, name, startAt'));
 
         // Check if userId exists
         if (!userId) return res.status(400).json(formatRes('error', null, 'Missing fields: userId'));
@@ -96,7 +96,7 @@ exports.createTask = async (req, res) => {
             if (!category) return res.status(404).json(formatRes('error', null, 'No category found with this id'));
         }
 
-        const task = await Task.create({userId, categoryId, name, color, description, done, startAt, endAt});
+        const task = await Task.create({userId, categoryId, name, description, done, startAt, endAt});
         if (!task) return res.status(500).json(formatRes('error', null, 'Error creating task'));
 
         return res.status(201).json(formatRes('success', null, 'Task created'))
@@ -106,7 +106,7 @@ exports.createTask = async (req, res) => {
 };
 
 exports.updateTask = async (req, res) => {
-    const { userId, categoryId, name, color, description, done, startAt, endAt} = req.body;
+    const { userId, categoryId, name, description, done, startAt, endAt} = req.body;
     try {
         // Get the task and check if it exists
         if (!req.params.id) return res.status(400).json(formatRes('error', null, 'No id provided'));
@@ -124,7 +124,7 @@ exports.updateTask = async (req, res) => {
             if (!category) return res.status(404).json(formatRes('error', null, 'No category found with this id'));
         }
 
-        const resp = await task.update({userId, categoryId, name, color, description, done, startAt, endAt});
+        const resp = await task.update({userId, categoryId, name, description, done, startAt, endAt});
         if (!resp) return res.status(500).json(formatRes('error', null, 'Error updating task'));
 
         return res.status(201).json(formatRes('success', 'Task updated'))

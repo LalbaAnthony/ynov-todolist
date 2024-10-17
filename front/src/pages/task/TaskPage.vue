@@ -29,13 +29,13 @@
         <div class="flex flex-wrap items-center justify-start gap-4">
           <div class="flex items-center gap-2">
             <span>From</span>
-            <DatePicker class="max-w-48" :value="taskStore.task?.data?.dateStart"
-              @update="(v) => { taskStore.task.data.dateStart = v }" />
+            <DatePicker class="max-w-48" :value="taskStore.task?.data?.startAt"
+              @update="(v) => { taskStore.task.data.startAt = v }" />
           </div>
           <div class="flex items-center gap-2">
             <span>To</span>
-            <DatePicker class="max-w-48" :value="taskStore.task?.data?.dateEnd"
-              @update="(v) => { taskStore.task.data.dateEnd = v }" />
+            <DatePicker class="max-w-48" :value="taskStore.task?.data?.endAt"
+              @update="(v) => { taskStore.task.data.endAt = v }" />
           </div>
         </div>
       </section>
