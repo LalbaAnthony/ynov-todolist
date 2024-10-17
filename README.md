@@ -26,7 +26,7 @@ cd front/ && npm i && ng serve
 
 ## Development
 
-Load test data:
+Seed test data:
 
 ```bash
 cd back/ && node seed.js
