@@ -53,10 +53,6 @@ onMounted(() => {
   checked.value = props.task.done
 })
 
-watch(() => props.task, () => {
-  taskStore.updateTask(props.task)
-}, { deep: true })
-
 </script>
 
 <style scoped>
