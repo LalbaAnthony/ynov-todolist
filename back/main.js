@@ -1,5 +1,7 @@
 // Import modules
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 const path = require('path');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
@@ -21,11 +23,27 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express()
 
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'API Documentation',
+            version: '1.0.0',
+            description: 'Documentation de l\'API',
+        },
+    },
+    apis: ['./src/routes.js'],
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // CORS middleware
 app.use(cors({
-    origin: process.env.VITE_APP_URL, 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'] 
+    origin: process.env.VITE_APP_URL,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // Log middleware
