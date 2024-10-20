@@ -20,6 +20,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "jslint": "^0.12.1",
     "nodemon": "^3.0.1"
   }
 }
