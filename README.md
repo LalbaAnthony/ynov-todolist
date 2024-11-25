@@ -31,3 +31,15 @@ Seed test data:
 ```bash
 cd back/ && node seed.js
 ```
+
+## Deployment
+
+```bash
+# Build and run the frontend
+docker build -t vuejs-frontend -f front/Dockerfile .
+docker run -p 8080:8080 vuejs-frontend
+
+# Build and run the backend
+docker build -t nodejs-backend -f back/Dockerfile .
+docker run -p 3000:3000 nodejs-backend
+```
