@@ -9,7 +9,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /api/categories:
+    * /api/categories:
  * get:
  * summary: Retrieve a list of categories
  */
