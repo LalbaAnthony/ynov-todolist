@@ -3,7 +3,7 @@
 ## Technos
 
 - Node.js
-- Angular
+- VueJs
 - Tailwind
 
 ## Quick Start
