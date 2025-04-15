@@ -175,22 +175,22 @@ exports.userUpdate = async (req, res) => {
 
 exports.validateToken = async (req, res) => {
     const { userId, token } = req.body;
-    try {
-        // Check if all fields are provided
-        if (!userId) return res.status(400).json(formatRes('error', null, 'Missing fields: userId'));
-        if (!token) return res.status(400).json(formatRes('error', null, 'Missing fields: token'));
+    // try {
+    //     // Check if all fields are provided
+    //     if (!userId) return res.status(400).json(formatRes('error', null, 'Missing fields: userId'));
+    //     if (!token) return res.status(400).json(formatRes('error', null, 'Missing fields: token'));
 
-        // Check if the user exists
-        const user = await User.findByPk(userId);
-        if (!user) return res.status(404).json(formatRes('error', null, 'User not found'));
+    //     // Check if the user exists
+    //     const user = await User.findByPk(userId);
+    //     if (!user) return res.status(404).json(formatRes('error', null, 'User not found'));
 
-        // Check if the token is valid
-        jwt.verify(token, process.env.BACK_SECRET_KEY, (err, user) => {
-            if (err) return res.sendStatus(403).json(formatRes('error', null, 'Error while verifiying the token'));
-        });
+    //     // Check if the token is valid
+    //     jwt.verify(token, process.env.BACK_SECRET_KEY, (err, user) => {
+    //         if (err) return res.sendStatus(403).json(formatRes('error', null, 'Error while verifiying the token'));
+    //     });
 
-        return res.status(200).json(formatRes('success', null, 'Token is valid'))
-    } catch (error) {
-        return res.status(500).json(formatRes('error', null, 'Token is invalid'))
-    }
+    //     return res.status(200).json(formatRes('success', null, 'Token is valid'))
+    // } catch (error) {
+    //     return res.status(500).json(formatRes('error', null, 'Token is invalid'))
+    // }
 };

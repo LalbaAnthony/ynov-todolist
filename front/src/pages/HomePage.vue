@@ -3,7 +3,7 @@
     <section>
       <h2 class="text-xl font-bold">Welcome!</h2>
       <p class="py-4">Voici la meilleure application de gestion de tâches que vous n'ayez jamais vu! <br>(c'est pas
-        vrai; elle n'a été créee que pour servir d'exemple en déploiement)</p>
+        vrai j'ai menti)</p>
     </section>
 
     <section v-if="taskStore?.tasks?.data?.length > 0">
