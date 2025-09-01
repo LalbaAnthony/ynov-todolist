@@ -4,7 +4,8 @@
   "private": true,
   "main": "main.js",
   "scripts": {
-    "dev": "nodemon main.js"
+    "dev": "nodemon main.js",
+    "seed": "nodemon seed.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

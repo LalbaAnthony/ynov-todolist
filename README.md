@@ -15,7 +15,7 @@ Create a `.env` file in the project directory. Use the `.env.example` file as a 
 1. BACKEND
 
 ```bash
-cd back/ && npm i && npm run dev
+cd back/ && npm i && npm run seed && npm run dev
 ```
 
 1. FRONTEND
